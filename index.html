@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CARLOS — 駈琉路守</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Cinzel:wght@500&display=swap" rel="stylesheet">
+<!-- ローカル検証は相対参照。本番(artifact)は jsDelivr の絶対URLに差し替える:
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/USER/REPO@v1/card.css"> -->
+<link rel="stylesheet" href="./card.css">
+</head>
+<body>
+  <article class="card" data-glyphs="4">
+    <header class="header">
+      <div class="name">CARLOS</div>
+      <div class="name-kana">カルロス</div>
+    </header>
+
+    <div class="kanji-stage">
+      <div class="kanji" data-len="4">駈琉路守<span class="seal">千</span></div>
+    </div>
+
+    <section class="glyphs">
+      <div class="glyph">
+        <div class="ch">駈</div>
+        <div class="meaning">correr<span class="dot">·</span>avanzar<span class="dot">·</span>libertad</div>
+      </div>
+      <div class="glyph">
+        <div class="ch">琉</div>
+        <div class="meaning">joya<span class="dot">·</span>brillo<span class="dot">·</span>elegancia</div>
+      </div>
+      <div class="glyph">
+        <div class="ch">路</div>
+        <div class="meaning">camino<span class="dot">·</span>paso<span class="dot">·</span>vida</div>
+      </div>
+      <div class="glyph">
+        <div class="ch">守</div>
+        <div class="meaning">proteger<span class="dot">·</span>guardián</div>
+      </div>
+    </section>
+
+    <footer class="quote">
+      <div class="quote-text">"Aquel que avanza libre, lleva su brillo y protege a quienes ama."</div>
+    </footer>
+
+    <div class="credit">escrito en japonés<span class="credit-flag">🇯🇵</span></div>
+  </article>
+
+  <div class="audio-bar">
+    <button class="audio-btn" id="speakBtn"
+      data-speak="Carlos, su nombre significa: Aquel que avanza libre, lleva su brillo y protege a quienes ama.">
+      <span class="ico">🔊</span><span id="speakLabel">escuchar</span>
+    </button>
+  </div>
+
+  <!-- 本番(artifact)は jsDelivr の絶対URLに差し替える:
+       <script src="https://cdn.jsdelivr.net/gh/USER/REPO@v1/audio.js" defer></script> -->
+  <script src="./audio.js" defer></script>
+</body>
+</html>

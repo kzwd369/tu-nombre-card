@@ -1,0 +1,61 @@
+:root {
+  --paper: #f3ece0;
+  --ink: #1a1611;
+  --ink-soft: #3a342b;
+  --ink-mute: #6a604f;
+  --seal: #a4322a;
+  --hairline: rgba(26, 22, 17, 0.18);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100vh; background: var(--paper); color: var(--ink); font-family: 'Cormorant Garamond', 'Shippori Mincho', serif; -webkit-font-smoothing: antialiased; overflow: hidden; }
+body { background: radial-gradient(ellipse at 30% 20%, rgba(255, 252, 244, 0.6), transparent 55%), radial-gradient(ellipse at 70% 85%, rgba(120, 90, 50, 0.08), transparent 60%), var(--paper); display: flex; justify-content: center; padding: 0; position: relative; }
+body::before { content: ""; position: fixed; inset: 0; pointer-events: none; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='500' height='500'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='2' seed='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.55  0 0 0 0 0.42  0 0 0 0 0.24  0 0 0 0.7 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>"); mix-blend-mode: multiply; opacity: 0.4; z-index: 0; }
+.card { width: 100%; max-width: 480px; height: 100vh; padding: 4.5vh 24px 3.5vh; display: flex; flex-direction: column; position: relative; z-index: 1; overflow: hidden; }
+.card::before { content: ""; position: absolute; left: 22px; right: 22px; height: 1px; background: var(--hairline); top: 3vh; }
+.credit { margin-top: 3vh; display: flex; align-items: center; justify-content: center; gap: 8px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 12.5px; letter-spacing: 0.18em; line-height: 1; color: var(--ink-mute); opacity: 0.65; }
+.credit::before, .credit::after { content: ""; flex: 0 1 55px; height: 1px; background: currentColor; opacity: 0.5; }
+.credit-flag { font-size: 12px; line-height: 1; font-style: normal; letter-spacing: 0; flex-shrink: 0; display: inline-block; }
+.header { text-align: center; }
+.name { font-family: 'Cinzel', serif; font-size: clamp(20px, 5.6vw, 28px); letter-spacing: 0.3em; color: var(--ink-soft); text-indent: 0.3em; }
+.name-kana { margin-top: 6px; font-family: 'Shippori Mincho', serif; font-size: 13px; letter-spacing: 0.36em; color: var(--ink-mute); text-indent: 0.36em; }
+.kanji-stage { position: relative; text-align: center; margin: 3vh 0; flex-shrink: 0; }
+.kanji { position: relative; display: inline-block; writing-mode: vertical-rl; font-family: 'Shippori Mincho', serif; font-weight: 700; color: var(--ink); line-height: 1.08; letter-spacing: 0.04em; font-size: clamp(48px, 12vw, 76px); }
+.kanji[data-len="2"] { font-size: clamp(80px, 20vw, 120px); letter-spacing: 0.12em; }
+.kanji[data-len="3"] { font-size: clamp(66px, 16.5vw, 104px); letter-spacing: 0.10em; }
+.kanji[data-len="4"] { font-size: clamp(62px, 15.5vw, 96px); letter-spacing: 0.12em; }
+.kanji[data-len="5"] { font-size: clamp(42px, 10.5vw, 66px); }
+.kanji[data-len="6"] { font-size: clamp(36px, 9vw, 56px); }
+.seal { position: absolute; writing-mode: horizontal-tb; bottom: -6px; left: calc(100% + 8px); width: 34px; height: 34px; background: var(--seal); color: #fbeede; font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 17px; line-height: 1; display: flex; align-items: center; justify-content: center; border-radius: 3px; opacity: 0.92; box-shadow: inset 0 0 0 1.5px rgba(255,255,255,0.18); letter-spacing: 0; }
+.glyphs { display: flex; flex-direction: column; gap: 10px; padding: 0 4px; margin-bottom: 2.5vh; }
+.glyph { display: grid; grid-template-columns: 36px 1fr; align-items: baseline; gap: 12px; }
+.glyph .ch { font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 25px; line-height: 1; color: var(--ink); text-align: center; }
+.glyph .meaning { font-family: 'Cormorant Garamond', serif; font-size: 20px; line-height: 1.35; color: var(--ink-soft); letter-spacing: 0.01em; white-space: nowrap; }
+.glyph .meaning .dot { margin: 0 5px; opacity: 0.5; }
+.card[data-glyphs="5"] .glyphs { gap: 8px; margin-bottom: 1.6vh; }
+.card[data-glyphs="5"] .glyph .meaning { font-size: 18px; line-height: 1.3; }
+.card[data-glyphs="6"] .glyph { gap: 10px; }
+.card[data-glyphs="6"] .glyphs { gap: 6px; margin-bottom: 1.1vh; }
+.card[data-glyphs="6"] .glyph .ch { font-size: 22px; }
+.card[data-glyphs="6"] .glyph .meaning { font-size: 16.5px; line-height: 1.25; }
+.card[data-glyphs="6"] .credit { margin-top: 2vh; }
+.quote { margin-top: auto; padding: 1.8vh 16px 2vh; text-align: center; background: linear-gradient(160deg, rgba(201,170,101,0.17), rgba(201,170,101,0.05) 55%, rgba(201,170,101,0.12)); border: 1px solid rgba(164,134,74,0.5); }
+.quote-text { font-family: 'Lora', serif; font-style: italic; font-weight: 500; font-size: clamp(16px, 4.2vw, 19px); line-height: 1.5; color: var(--ink); }
+@media (prefers-color-scheme: dark) {
+  html, body { background: #f3ece0 !important; color: #1a1611 !important; }
+  .card { background: transparent !important; }
+  .name { color: #3a342b !important; }
+  .name-kana { color: #6a604f !important; }
+  .credit { color: #6a604f !important; }
+  .kanji { color: #1a1611 !important; }
+  .glyph .ch { color: #1a1611 !important; }
+  .glyph .meaning { color: #3a342b !important; }
+  .quote { background: linear-gradient(160deg, rgba(201,170,101,0.17), rgba(201,170,101,0.05) 55%, rgba(201,170,101,0.12)) !important; border-color: rgba(164,134,74,0.5) !important; }
+  .quote-text { color: #1a1611 !important; }
+  .seal { background: #a4322a !important; color: #fbeede !important; }
+}
+/* 音声ボタン（カードの外＝スクショに写らないレイヤー） */
+.audio-bar { position: fixed; left: 0; right: 0; bottom: 0; display: flex; justify-content: center; padding: 14px; z-index: 50; pointer-events: none; transition: opacity .25s ease, visibility .25s ease; }
+.audio-bar.hidden { opacity: 0; visibility: hidden; }
+.audio-btn { pointer-events: auto; display: inline-flex; align-items: center; gap: 8px; background: rgba(26,22,17,0.86); color: #f0e4cf; border: 1px solid rgba(201,170,101,0.55); border-radius: 24px; padding: 11px 22px; font-family: 'Lora', serif; font-style: italic; font-size: 15px; letter-spacing: 0.04em; cursor: pointer; -webkit-tap-highlight-color: transparent; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.audio-btn .ico { font-style: normal; font-size: 15px; }
+.audio-btn:disabled { opacity: 0.5; }
